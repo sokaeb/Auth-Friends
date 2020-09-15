@@ -1,4 +1,5 @@
-import React, { useState, useHistory } from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 
@@ -14,7 +15,7 @@ const initialError = {
 export default function Login(props) {
     const [ credentials, setCredentials ] = useState(initialCredentialData);
     const [ error, setError ] = useState(initialError);
-    // const history = useHistory();
+    const history = useHistory();
 
 const handleChange = evt => {
         setCredentials({
@@ -30,7 +31,8 @@ const login = evt => {
             .then(res => {
                 // console.log(res)
                 localStorage.setItem('token', res.data.payload);
-                // history.push('/protected');
+                history.push({
+                    pathname: '/protected'});
             })
             .catch(err => {
                 setError({
