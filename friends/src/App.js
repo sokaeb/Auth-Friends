@@ -10,6 +10,7 @@ import PrivateRoute from './components/PrivateRoute';
 function App() {
   return (
     <Router>
+      <header className="App-header"></header>
       <div className="App">
         <ul>
           <li>
