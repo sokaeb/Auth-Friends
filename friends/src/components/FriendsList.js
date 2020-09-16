@@ -63,7 +63,15 @@ export default function FriendsList(props) {
         <div>
             <h2>Your Friends</h2>
             <div className='friendsList'>
-                {friends.map(friend => (<div key={friend.id}>{friend.name}</div>))}
+                {friends.map(friend => {
+                    return (
+                    <div key={friend.id}>
+                        <h2>{friend.name}</h2>
+                        <p>{friend.age}</p>
+                        <p>{friend.email}</p>
+                    </div>
+                    )})
+                }
             </div>
             
             <div className='formDiv'>  
