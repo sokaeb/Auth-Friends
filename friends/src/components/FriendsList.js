@@ -26,7 +26,6 @@ export default function FriendsList(props) {
     // console.log(friends)
 
     // Form functions
-
     const postNewFriend = newFriend => {
         axiosWithAuth()
             .post('/api/friends', newFriend)
@@ -41,12 +40,12 @@ export default function FriendsList(props) {
             })
     }
 
-    const inputChange = (name, value)=> {
+    const inputChange = (evt)=> {
         // console.log(evt)
         setFormValues({
-            [name] : [value]
+            ...formValues,
+            [evt.target.name]: evt.target.value
         });
-        // setFormValues(initialFriendValues);
     };
 
     const submit = (evt) => {
@@ -54,8 +53,8 @@ export default function FriendsList(props) {
         const newFriend = {
             id: Date.now(),
             name: formValues.name.trim(),
-            // age: formValues.age.trim(),
-            // email: formValues.email.trim(),
+            age: formValues.age.trim(),
+            email: formValues.email.trim(),
         }
         postNewFriend(newFriend)
     };
