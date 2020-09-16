@@ -41,21 +41,21 @@ export default function FriendsList(props) {
             })
     }
 
-    const inputChange = evt => {
+    const inputChange = (name, value)=> {
+        // console.log(evt)
         setFormValues({
-            ...formValues,
-            [evt.target.name]: evt.target.value
+            [name] : [value]
         });
-        setFormValues(initialFriendValues);
+        // setFormValues(initialFriendValues);
     };
 
     const submit = (evt) => {
         evt.preventDefault();
         const newFriend = {
-            // id: Date.now(),
+            id: Date.now(),
             name: formValues.name.trim(),
-            age: formValues.age.trim(),
-            email: formValues.email.trim(),
+            // age: formValues.age.trim(),
+            // email: formValues.email.trim(),
         }
         postNewFriend(newFriend)
     };
