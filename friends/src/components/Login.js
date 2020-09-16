@@ -31,8 +31,7 @@ const login = evt => {
             .then(res => {
                 // console.log(res)
                 localStorage.setItem('token', res.data.payload);
-                history.push({
-                    pathname: '/protected'});
+                history.push('/protected');
             })
             .catch(err => {
                 setError({
